@@ -262,6 +262,7 @@ main {
 
 @media only screen and (max-width:600px){
     .commercial-banner {
+        background-size: 100% auto;
         background-image: url(/images/horizon-portrait.avif);
     }
 }
