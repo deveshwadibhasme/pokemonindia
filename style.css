@@ -33,7 +33,7 @@ header {
     background-color: white;
 }
 
-.logo{
+.logo {
     margin: 0 auto;
 }
 
@@ -42,11 +42,12 @@ header nav {
     width: 100%;
     min-height: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 header nav ul {
     display: flex;
-    max-width:990px;
+    max-width: 990px;
     width: 100%;
     height: 100%;
     justify-content: space-between;
@@ -56,9 +57,9 @@ header nav ul {
 }
 
 header nav ul li {
-    margin:0 auto;
+    margin: 0 auto;
     display: flex;
-    max-width: 160px;
+    max-width: 130px;
     width: 100%;
     height: 45px;
     font-size: 0.9rem;
@@ -74,7 +75,7 @@ header nav ul li::before {
     position: absolute;
     bottom: -1px;
     height: 5px;
-    max-width: 150px;
+    max-width: 120px;
     width: 100%;
     transition: all 0.3s;
     border-top-left-radius: 1px;
@@ -86,7 +87,7 @@ li:hover::before {
     height: 100%;
     z-index: 1;
     mask-image: url(images/pika.png);
-    mask-size:100% auto;
+    mask-size: 100% auto;
     mask-repeat: no-repeat;
     mask-position: center;
 }
@@ -113,7 +114,7 @@ header nav ul li a {
 }
 
 @media only screen and (max-width: 600px) {
-    header nav ul li a{
+    header nav ul li a {
         font-size: 0.7rem;
         align-items: center;
     }
@@ -178,7 +179,7 @@ li:nth-child(5)::before {
     background-color: var(--event);
 }
 
-details{
+details {
     position: relative;
     top: 5px;
     left: 10px;
@@ -186,7 +187,7 @@ details{
     cursor: pointer;
 }
 
-details summary{
+details summary {
     display: flex;
     height: 100%;
     width: 130px;
@@ -194,21 +195,21 @@ details summary{
     font: normal normal 700 1rem/0px sans-serif;
 }
 
-summary::before{
+summary::before {
     content: '🤠';
     position: absolute;
     left: 0;
     font-size: 2rem;
 }
 
-summary::after{
+summary::after {
     content: '⬇';
     position: absolute;
     right: 0px;
     font-size: 1rem;
 }
 
-details::before{
+details::before {
     content: '|';
     position: absolute;
     left: -5px;
@@ -217,38 +218,59 @@ details::before{
     color: whitesmoke;
 }
 
-details::after{
-        content: '|';
-        position: absolute;
-        top: 0;
-        right: -9px;
-        font-size: 2rem;
-        opacity: 1;
-        color: whitesmoke;
+details::after {
+    content: '|';
+    position: absolute;
+    top: 0;
+    right: -9px;
+    font-size: 2rem;
+    opacity: 1;
+    color: whitesmoke;
 }
 
-details ul{
+details ul {
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 139px;
+    max-width: 139px;
+    width: 100%;
     text-align: center;
     height: 70px;
     justify-content: space-evenly;
     background-color: white;
 }
 
-main{
+main {
     margin: 0 auto;
-    max-width: 1270px;
+    max-width: 100vw;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
 }
 
-.annoucement{
+.commercial-banner {
+    display: flex;
+    height: 110vh;
+    max-width: 100vw;
+    background-image: url(/images/horizon.avif);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+}
+
+@media only screen and (max-width:600px){
+    .commercial-banner {
+        background-image: url(/images/horizon-portrait.avif);
+    }
+}
+
+.annoucement {
     margin: 0 auto;
     margin-top: 20px;
     display: flex;
-    max-width: 1280px;
+    max-width: 1260px;
     width: 100%;
     min-height: 250px;
     justify-content: space-between;
@@ -256,9 +278,9 @@ main{
     gap: 5px;
 }
 
-.banner-1{
+.banner-1 {
     margin: 0 auto;
-    background-image:url(/images/banner_quiz.avif);
+    background-image: url(/images/banner_quiz.avif);
     background-size: cover;
     background-position: center;
     max-width: 600px;
@@ -267,18 +289,41 @@ main{
     border-radius: 10px;
 }
 
-.banner-2{
+.banner-2 {
     margin: 0 auto;
-    background-image:url(/images/banner_kidstv.avif);
+    background-image: url(/images/banner_kidstv.avif);
     background-size: cover;
     background-position: center;
     max-width: 600px;
     width: 100%;
     height: 240px;
     border-radius: 10px;
+    overflow: hidden;
 }
 
-.btn-link{
+.banner-1:after,
+.banner-2::after {
+    content: '';
+    height: 250px;
+    width: 450px;
+    mask-image: url(/images/pikastand.png);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    filter: opacity(0.4);
+    /* position: absolute; */
+}
+
+.annoucement:has(.banner-1:hover) .banner-1:after{
+    position: absolute;
+    background-color: white;
+}
+.annoucement:has(.banner-2:hover) .banner-2:after{
+    position: absolute;
+    background-color: black;
+}
+
+.btn-link {
     margin: 20px auto;
     max-width: 1260px;
     width: 100%;
@@ -286,11 +331,11 @@ main{
     justify-content: center;
 }
 
-.card-list{
+.card-list {
     margin: 0 auto;
 }
 
-.card-list ul{
+.card-list ul {
     margin: 0 auto;
     display: flex;
     max-width: 1270px;
@@ -298,7 +343,7 @@ main{
     flex-wrap: wrap;
 }
 
-.card-list .card{
+.card-list .card {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
