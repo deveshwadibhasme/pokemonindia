@@ -252,7 +252,7 @@ main {
 
 .commercial-banner {
     display: flex;
-    height: 110vh;
+    min-height: 110vh;
     max-width: 100vw;
     background-image: url(/images/horizon.avif);
     background-repeat: no-repeat;
@@ -262,7 +262,7 @@ main {
 
 @media only screen and (max-width:600px){
     .commercial-banner {
-        background-size: 100% auto;
+        background-size: cover;
         background-image: url(/images/horizon-portrait.avif);
     }
 }
