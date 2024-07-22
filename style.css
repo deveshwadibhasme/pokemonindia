@@ -86,10 +86,10 @@ header nav ul li::before {
 li:hover::before {
     height: 100%;
     z-index: 1;
-    mask-image: url(images/pika.png);
-    mask-size: 100% auto;
-    mask-repeat: no-repeat;
-    mask-position: center;
+    -webkit-mask-image: url(images/pika.png);
+    -webkit-mask-size: 100% auto;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
 }
 
 @keyframes wave {
@@ -307,10 +307,10 @@ main {
     content: '';
     height: 250px;
     width: 450px;
-    mask-image: url(/images/pikastand.png);
-    mask-size: contain;
-    mask-repeat: no-repeat;
-    mask-position: center;
+    -webkit-mask-image: url(/images/pikastand.png);
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
     filter: opacity(0.4);
     /* position: absolute; */
 }
