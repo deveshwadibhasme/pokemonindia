@@ -10,45 +10,59 @@
 body {
     scroll-behavior: smooth;
     background-color: rgb(230, 222, 222);
+    height: 100%;
+    width: 100%;
 }
 
 :root {
-    --anime: #08b3ec;
+    --anime: #03A9F4;
     --movie: #f1a100;
-    --goods: #00d4bc;
+    --goods: #4CAF50;
     --apps: #9300f5;
-    --event: #b9d100;
+    --event: #795548;
 }
 
 header {
-    margin: 0px auto;
     display: flex;
-    max-width: 1270px;
+    max-width: 100vw;
     width: 100%;
-    min-height: 60px;
+    min-height: 70px;
     height: 100%;
-    justify-content: space-between;
+    background-color: white;
+}
+
+.header-contents{
+    margin: 0 auto;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    width: 1260px;
+    height: 100%;
     flex-wrap: wrap;
     background-color: white;
 }
 
-.logo {
-    margin: 0 auto;
+.header-contents .logo {
+    height: 100%;
+    width: 105px;
+    padding-top: 10px;
 }
 
 header nav {
+    margin: 0 auto;
     max-width: 900px;
     width: 100%;
-    min-height: 100%;
+    height: 100%;
     position: relative;
     overflow: hidden;
 }
 
 header nav ul {
+    margin: auto;
     display: flex;
-    max-width: 990px;
+    max-width: 900px;
     width: 100%;
+    min-height: 60px;
     height: 100%;
     justify-content: space-between;
     align-items: center;
@@ -61,11 +75,11 @@ header nav ul li {
     display: flex;
     max-width: 130px;
     width: 100%;
-    height: 45px;
-    font-size: 0.9rem;
+    height: 100%;
+    font-size: 0.8rem;
     font-family: sans-serif;
-    align-self: center;
-    justify-self: center;
+    justify-content: center;
+    text-align: center;
     cursor: pointer;
     font-weight: 700;
 }
@@ -73,20 +87,19 @@ header nav ul li {
 header nav ul li::before {
     content: "";
     position: absolute;
-    bottom: -1px;
+    bottom: 1px;
+    z-index: 2;
     height: 5px;
-    max-width: 120px;
+    max-width: 170px;
     width: 100%;
     transition: all 0.3s;
-    border-top-left-radius: 1px;
-    border-top-right-radius: 1px;
     animation: wave 1s linear infinite alternate-reverse;
 }
 
 li:hover::before {
     height: 100%;
     z-index: 1;
-    -webkit-mask-image: url(images/pika.png);
+    -webkit-mask-image: url(/images/icons-images/pika.png);
     -webkit-mask-size: 100% auto;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
@@ -113,39 +126,60 @@ header nav ul li a {
     padding: 10px;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
     header nav ul li a {
         font-size: 0.7rem;
         align-items: center;
+        text-align: center;
+        padding: 0px;
+    }
+    li:hover::before {
+        height: 100%;
+        z-index: 1;
+        -webkit-mask-image: url(/images/icons-images/pika.png);
+        -webkit-mask-size: 100% auto;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+    }
+    header nav ul li::before {
+        content: "";
+        position: absolute;
+        bottom: 1px;
+        z-index: 2;
+        height: 5px;
+        max-width: 80px;
+        width: 100%;
+        transition: all 0.3s;
+        animation: wave 1s linear infinite alternate-reverse;
     }
 }
 
 #anime {
-    color: #08b3ec;
+    color: var(--anime);
     height: 100%;
     width: 100%;
 }
 
 #goods {
-    color: #f1a100;
+    color: var(--goods);
     height: 100%;
     width: 100%;
 }
 
 #apps {
-    color: #00d4bc;
+    color: var(--apps);
     height: 100%;
     width: 100%;
 }
 
 #movies {
-    color: #9300f5;
+    color: var(--movie);
     height: 100%;
     width: 100%;
 }
 
 #events {
-    color: #b9d100;
+    color:var(--event);
     height: 100%;
     width: 100%;
 }
@@ -179,37 +213,46 @@ li:nth-child(5)::before {
     background-color: var(--event);
 }
 
-details {
+.drop-lang {
     position: relative;
     top: 5px;
     left: 10px;
     margin: 0 auto;
     cursor: pointer;
+    height: 100%;
+    width: 150px;
+    display: flex;
+    justify-content: center;
 }
 
-details summary {
+.drop-lang h3 {
     display: flex;
     height: 100%;
     width: 130px;
-    padding: 23px 0px 25px 47px;
+    padding: 25px 0px 25px 38px;
     font: normal normal 700 1rem/0px sans-serif;
+    text-transform: uppercase;
+    vertical-align: center;
 }
 
-summary::before {
-    content: '🤠';
+.drop-lang h3::before {
+    content: '';
     position: absolute;
-    left: 0;
-    font-size: 2rem;
+    left: 10px;
+    top: 8px;
+    background-image: url(/images/icons-images/pokeball-icon.png);
+    background-size: cover;
+    height: 30px;
+    width: 30px;
 }
 
-summary::after {
-    content: '⬇';
+.drop-lang img{
     position: absolute;
     right: 0px;
-    font-size: 1rem;
+    top: 15px;
 }
 
-details::before {
+.drop-lang::before {
     content: '|';
     position: absolute;
     left: -5px;
@@ -218,7 +261,7 @@ details::before {
     color: whitesmoke;
 }
 
-details::after {
+.drop-lang::after {
     content: '|';
     position: absolute;
     top: 0;
@@ -228,9 +271,10 @@ details::after {
     color: whitesmoke;
 }
 
-details ul {
+.drop-lang ul {
     position: absolute;
-    display: flex;
+    top: 60px;
+    display: none;
     flex-direction: column;
     max-width: 139px;
     width: 100%;
@@ -238,6 +282,20 @@ details ul {
     height: 70px;
     justify-content: space-evenly;
     background-color: white;
+}
+
+.drop-lang .hover ul li::before  {
+    content: '';
+    position: absolute;
+    top: 0;
+    background-image: url(/images/icons-images/pokeball-icon.png);
+    background-size: cover;
+    height: 10px;
+    width: 10px;
+}
+
+.drop-lang ul li:hover{
+    color: #f1a100;
 }
 
 main {
@@ -254,16 +312,16 @@ main {
     display: flex;
     min-height: 110vh;
     max-width: 100vw;
-    background-image: url(/images/horizon.avif);
+    background-image: url(/images/main-banner/horizon.avif);
     background-repeat: no-repeat;
     background-size: auto 100%;
     background-position: center;
 }
 
-@media only screen and (max-width:600px){
+@media (max-width:600px){
     .commercial-banner {
-        background-size: cover;
-        background-image: url(/images/horizon-portrait.avif);
+        background-size: 100% contain;
+        background-image: url(/images/main-banner/horizon-portrait.avif);
     }
 }
 
@@ -279,9 +337,15 @@ main {
     gap: 5px;
 }
 
-.banner-1 {
+#banner-link {
+    max-width: 600px;
+    width: 100%;
+    height: 240px;
+}
+
+.annoucement #banner-link .banner-1 {
     margin: 0 auto;
-    background-image: url(/images/banner_quiz.avif);
+    background-image: url(/images/announce-banner/banner_quiz.avif);
     background-size: cover;
     background-position: center;
     max-width: 600px;
@@ -290,9 +354,9 @@ main {
     border-radius: 10px;
 }
 
-.banner-2 {
+.annoucement #banner-link .banner-2 {
     margin: 0 auto;
-    background-image: url(/images/banner_kidstv.avif);
+    background-image: url(/images/announce-banner/banner_kidstv.avif);
     background-size: cover;
     background-position: center;
     max-width: 600px;
@@ -305,22 +369,22 @@ main {
 .banner-1:after,
 .banner-2::after {
     content: '';
-    height: 250px;
-    width: 450px;
-    -webkit-mask-image: url(/images/pikastand.png);
-    -webkit-mask-size: contain;
+    height: 240px;
+    width: 600px;
+    -webkit-mask-image: url(/images/icons-images/pokeball-icon.png);
+    -webkit-mask-size: contain 100%;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
-    filter: opacity(0.4);
-    /* position: absolute; */
+    filter: opacity(0.4) blur(20px);
+    cursor: pointer;
 }
 
-.annoucement:has(.banner-1:hover) .banner-1:after{
-    position: absolute;
+.annoucement:has(.banner-1:hover) #banner-link .banner-1:after{
+    position:absolute;
     background-color: white;
 }
-.annoucement:has(.banner-2:hover) .banner-2:after{
-    position: absolute;
+.annoucement:has(.banner-2:hover) #banner-link .banner-2:after{
+    position:absolute;
     background-color: black;
 }
 
@@ -339,7 +403,7 @@ main {
 .card-list ul {
     margin: 0 auto;
     display: flex;
-    max-width: 1270px;
+    max-width: 1370px;
     width: 100%;
     flex-wrap: wrap;
 }
@@ -348,7 +412,52 @@ main {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    max-width: 300px;
+    max-width: 290px;
     width: 100%;
     min-height: 390px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.card-header{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+}
+
+.card-header .header-title{
+    font-size: 0.9rem;
+    padding-left:30px;
+    font-weight: 700;
+    color: white;
+}
+
+.card-header .header-title::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    background-image: url(/images/icons-images/pokeball-icon.png);
+    background-size:cover;
+    height: 30px;
+    width: 30px;
+}
+
+.anime .card-header{
+    background-color: var(--anime);
+}
+.apps .card-header{
+    background-color: var(--apps);
+}
+.events .card-header{
+    background-color: var(--event);
+}
+
+.card-img{
+    min-height: 236px;
+    width: 100%;
 }
