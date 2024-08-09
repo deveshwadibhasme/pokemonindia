@@ -713,7 +713,7 @@ footer{
     gap: 10px;
 }
 
-a {
+.global-links h5 a {
     color: #fff;
     font-weight: 100;
 }
