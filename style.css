@@ -31,7 +31,7 @@ header {
     background-color: white;
 }
 
-.header-contents{
+.header-contents {
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -139,6 +139,7 @@ header nav ul li a {
         text-align: center;
         padding: 0px;
     }
+
     li:hover::before {
         height: 100%;
         z-index: 1;
@@ -147,6 +148,7 @@ header nav ul li a {
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-position: center;
     }
+
     header nav ul li::before {
         content: "";
         position: absolute;
@@ -185,7 +187,7 @@ header nav ul li a {
 }
 
 #events {
-    color:var(--event);
+    color: var(--event);
     height: 100%;
     width: 100%;
 }
@@ -219,7 +221,7 @@ li:nth-child(5)::before {
     background-color: var(--event);
 }
 
-.drop-lang {
+.pokedex-wrap {
     position: relative;
     top: 5px;
     left: 10px;
@@ -231,7 +233,7 @@ li:nth-child(5)::before {
     justify-content: center;
 }
 
-.drop-lang h3 {
+.pokedex-wrap h3 {
     display: flex;
     height: 100%;
     width: 130px;
@@ -241,7 +243,7 @@ li:nth-child(5)::before {
     vertical-align: center;
 }
 
-.drop-lang h3::before {
+.pokedex-wrap h3::before {
     content: '';
     position: absolute;
     left: 10px;
@@ -252,13 +254,13 @@ li:nth-child(5)::before {
     width: 30px;
 }
 
-.drop-lang img{
+.pokedex-wrap img {
     position: absolute;
     right: 0px;
     top: 15px;
 }
 
-.drop-lang::before {
+.pokedex-wrap::before {
     content: '|';
     position: absolute;
     left: -5px;
@@ -267,7 +269,7 @@ li:nth-child(5)::before {
     color: whitesmoke;
 }
 
-.drop-lang::after {
+.pokedex-wrap::after {
     content: '|';
     position: absolute;
     top: 0;
@@ -277,7 +279,7 @@ li:nth-child(5)::before {
     color: whitesmoke;
 }
 
-.drop-lang ul {
+.pokedex-wrap ul {
     position: absolute;
     top: 60px;
     display: none;
@@ -291,7 +293,7 @@ li:nth-child(5)::before {
     background-color: white;
 }
 
-ul .hover{
+ul .hover {
     content: '';
     position: relative;
     background-image: url(/images/icons-images/pokeball-icon.png);
@@ -301,7 +303,7 @@ ul .hover{
     transition: background-position 0.2s linear;
 }
 
-.drop-lang ul li:hover{
+.pokedex-wrap ul li:hover {
     color: #f1a100;
 }
 
@@ -319,16 +321,22 @@ main {
     display: flex;
     min-height: 110vh;
     max-width: 100vw;
+    width: 100%;
     background-image: url(/images/main-banner/horizon.avif);
     background-repeat: no-repeat;
-    background-size: auto 100%;
+    background-size: 100% 100%;
     background-position: center;
 }
 
-@media (max-width:600px){
+@media (max-width:600px) {
     .commercial-banner {
-        background-size: 100% contain;
+        width: 500px;
+        /* width: 100%; */
+        min-height: 500px;
+        height: 100%;
         background-image: url(/images/main-banner/horizon-portrait.avif);
+        background-size: 100% 100%;
+        background-position: center;
     }
 }
 
@@ -386,13 +394,35 @@ main {
     cursor: pointer;
 }
 
-.annoucement:has(.banner-1:hover) #banner-link .banner-1:after{
-    position:absolute;
+.annoucement:has(.banner-1:hover) #banner-link .banner-1:after {
+    position: absolute;
     background-color: white;
 }
-.annoucement:has(.banner-2:hover) #banner-link .banner-2:after{
-    position:absolute;
+
+.annoucement:has(.banner-2:hover) #banner-link .banner-2:after {
+    position: absolute;
     background-color: black;
+}
+
+@media (max-width:600px) {
+    .annoucement #banner-link .banner-1 {
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .annoucement #banner-link .banner-2 {
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .banner-1:after,
+    .banner-2::after {
+        content: '';
+        height: 240px;
+        width: 400px;
+        -webkit-mask-size: contain 100%;
+    }
+
 }
 
 .btn-link {
@@ -414,7 +444,7 @@ main {
     max-width: 1370px;
     width: 100%;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
 }
 
 .card-list .card {
@@ -426,9 +456,10 @@ main {
     min-height: 410px;
     border-radius: 5px;
     overflow: hidden;
+    position: relative;
 }
 
-.card-header{
+.card-header {
     height: 40px;
     width: 100%;
     display: flex;
@@ -437,51 +468,61 @@ main {
     position: relative;
 }
 
-.card-header .header-title{
+.card-header .header-title {
     font-size: 0.9rem;
-    padding-left:30px;
+    padding-left: 30px;
     font-weight: 700;
     color: white;
 }
 
-.card-header .header-title::before{
+.card-header .header-title::before {
     content: '';
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 10px;
     background-image: url(/images/icons-images/pokeball-icon.png);
-    background-size:cover;
+    background-size: cover;
     height: 30px;
     width: 30px;
 }
 
-.anime .card-header, .anime .card-img::before{
+.anime .card-header,
+.anime .card-img::before {
     background-color: var(--anime);
 }
-.apps .card-header , .apps .card-img::before{
+
+.apps .card-header,
+.apps .card-img::before {
     background-color: var(--apps);
 }
-.events .card-header , .events .card-img::before{
+
+.events .card-header,
+.events .card-img::before {
     background-color: var(--event);
 }
-.anime .card-info .date{
-    color:var(--anime)
-}
-.apps .card-info .date{
-    color:var(--apps)
-}
-.events .card-info .date{
-    color:var(--event)
+
+.anime .card-info .date {
+    color: var(--anime)
 }
 
-.card-img{
+.apps .card-info .date {
+    color: var(--apps)
+}
+
+.events .card-info .date {
+    color: var(--event)
+}
+
+.card-img {
     min-height: 236px;
     width: 100%;
     position: relative;
+    min-height: 230px;
+    height: 100%;
 }
 
-.card-img::before{
+.card-img::before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -489,7 +530,7 @@ main {
     height: 5px;
 }
 
-.card-info{
+.card-info {
     display: flex;
     min-height: 124px;
     height: 100%;
@@ -500,7 +541,7 @@ main {
     letter-spacing: 1px;
 }
 
-.card-info .date{
+.card-info .date {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -509,3 +550,232 @@ main {
     font-weight: 800;
 }
 
+@media (max-width:600px) {
+    .card-header {
+        height: 23px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        position: relative;
+    }
+
+    .card-header .header-title {
+        font-size: 0.7rem;
+        padding-left: 30px;
+        font-weight: 700;
+        color: white;
+    }
+
+    .card-header .header-title::before {
+        height: 23px;
+        width: 23px;
+        background-color: red;
+        -webkit-mask-image: url(/images/icons-images/pokeball-icon.png);
+        -webkit-mask-size: cover;
+        position: absolute;
+        right: 15px;
+    }
+
+    .card-list {
+        display: flex;
+    }
+
+    .card-list .card {
+        max-width: 220px;
+        width: 100%;
+        min-height: 220px;
+        font-size: 10px;
+        align-items: center;
+    }
+
+    .card-img {
+        min-height: 120px;
+        width: 100%;
+        position: relative;
+        height: 100%;
+    }
+
+    .card-img img {
+        min-height: 120px;
+        width: 100%;
+        position: relative;
+        height: 100%;
+    }
+
+    .card-img::before {
+        content: '';
+        position: absolute;
+        bottom: 15px;
+        width: 100%;
+        height: 5px;
+    }
+
+    .card-info {
+        display: flex;
+        height: 100%;
+        height: 80px;
+        width: 100%;
+        background-color: #fff;
+        padding: 5px 10px;
+        position: relative;
+        letter-spacing: 1px;
+        font-size: 10px;
+    }
+
+    .card-info .date {
+        position: absolute;
+        bottom: 5px;
+        right: 0;
+        padding: 0px 15px 10px 0px;
+        font-size: 12px;
+        font-weight: 800;
+    }
+}
+
+.more-news {
+    align-self: center;
+    border: 0;
+    height: 50px;
+    width: 250px;
+    margin: 20px;
+    border-radius: 25px;
+    background-color: #252525;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: white;
+    padding: 10px 20px 10px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.more-news:hover {
+    border: 1px solid #252525;
+    background-color: white;
+    color: #252525;
+}
+
+.social-account {
+    display: flex;
+    width: 100%;
+    min-height: 100px;
+    background-color: white;
+}
+
+.social-wrap {
+    display: flex;
+    align-self: center;
+    margin: 0 auto;
+    align-items: center;
+    gap: 5px;
+    max-width: 280px;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    color: #252525;
+    font-weight: 200;
+}
+
+footer{
+    background-color: black;
+    width: 100%;
+    height: fit-content;
+}
+
+.footer-content {
+    min-height: 100px;
+    width: 100%;
+    /* background-color: black; */
+    display: flex;
+    align-items: center;
+}
+
+.foooter-links {
+    min-height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 30px;
+    flex-wrap:wrap;
+}
+
+.global-links {
+    display: flex;
+    max-width: 550px;
+    width: 100%;
+    justify-content: space-between;
+    font-weight: 100;
+    position: relative;
+    align-items: center;
+    flex-wrap:wrap;
+    gap: 10px;
+}
+
+a {
+    color: #fff;
+    font-weight: 100;
+}
+
+.global-links h5 {
+    position: relative;
+    margin: 0 auto;
+}
+.global-links h5 a:hover {
+   color:#f0d8d0;
+}
+
+.global-links #terms::before,
+#policy::before,
+#site-map::before,
+#inquiry::before {
+    content: '|';
+    position: absolute;
+    top: -5px;
+    color: aliceblue;
+    left: -20px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.india-region-link{
+    margin: auto 0;
+    height: 35px;
+    width: 95px;
+    text-align: center;
+    align-items: center;
+    padding-top: 9px;
+    border-radius: 30px;
+    background-color: rgba(128, 128, 128, 0.726);
+}
+.india-region-link:hover{
+    cursor: pointer;
+    background-color: aliceblue;
+}
+.india-region-link:hover a{
+    color:#252525;
+}
+
+.pokemon-rights{
+    margin: 0 40px;
+    height: 50px;
+    color: rgb(189, 183, 175);
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+}
+
+
+@media (max-width:600px) {
+    .social-wrap {
+        gap: 5px;
+        max-width: 180px;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+    .india-region-link{
+        margin: 10px auto;
+    }
+}

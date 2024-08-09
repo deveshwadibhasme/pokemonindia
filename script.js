@@ -1,30 +1,36 @@
-const dropMenu = document.querySelector('.drop-lang')
-const langMenu = document.querySelector('.drop-lang ul')
-const arrow = document.querySelector('.drop-lang img')
-const langMenuHover = document.querySelectorAll('.drop-lang ul li')
+const dropMenu = document.querySelector('.pokedex-wrap')
+const dexlang = document.querySelector('.pokedex-wrap ul')
+const arrow = document.querySelector('.pokedex-wrap img')
+const dexlanghover = document.querySelectorAll('.pokedex-wrap ul li')
 
 dropMenu.addEventListener('mouseover', ()=>{
-    langMenu.style.display = 'flex'
+    dexlang.style.display = 'flex'
     arrow.style.transform = 'rotate(180deg)'
 })
-dropMenu.addEventListener('mousedown', ()=>{
-    langMenu.style.display = 'none'
+dexlang.addEventListener('mousedown', ()=>{
+    dexlang.style.display = 'none'
     arrow.style.transform = 'unset'
 })
 dropMenu.addEventListener('touchstart', ()=>{
-    langMenu.style.display = 'flex'
+    dexlang.style.display = 'flex'
     arrow.style.transform = 'rotate(180deg)'
 })
-langMenu.addEventListener('touchcancel', ()=>{
-    langMenu.style.display = 'none'
+dexlang.addEventListener('touchend', ()=>{
+    dexlang.style.display = 'none'
     arrow.style.transform = 'unset'
 })
 
-langMenuHover.forEach( e =>{
+dexlanghover.forEach( e =>{
     e.addEventListener('mouseover',()=>{
         e.classList.add('hover')
     })
     e.addEventListener('mouseout',()=>{
+        e.classList.remove('hover')
+    })
+    e.addEventListener('touchmove',()=>{
+        e.classList.add('hover')
+    })
+    e.addEventListener('touchend',()=>{
         e.classList.remove('hover')
     })
 });
