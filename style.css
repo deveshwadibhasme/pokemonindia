@@ -324,18 +324,25 @@ main {
     width: 100%;
     background-image: url(/images/main-banner/horizon.avif);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center;
+    background-size:100% auto;
+    background-position: top;
+}
+
+@media (max-width:900px) {
+    .commercial-banner{
+        min-height: 50vh;
+        background-position: center;
+    }
 }
 
 @media (max-width:600px) {
     .commercial-banner {
-        width: 500px;
-        /* width: 100%; */
+        max-width: 500px;
+        width: 100%;
         min-height: 500px;
         height: 100%;
         background-image: url(/images/main-banner/horizon-portrait.avif);
-        background-size: 100% 100%;
+        background-size: auto 100%;
         background-position: center;
     }
 }
@@ -346,16 +353,18 @@ main {
     display: flex;
     max-width: 1260px;
     width: 100%;
-    min-height: 250px;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 5px;
+    min-height: 240px;
+    justify-content: center;
+    gap: 10px;
+    overflow: hidden;
 }
+
 
 #banner-link {
     max-width: 600px;
     width: 100%;
     height: 240px;
+    overflow: hidden;
 }
 
 .annoucement #banner-link .banner-1 {
@@ -367,6 +376,7 @@ main {
     width: 100%;
     height: 240px;
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .annoucement #banner-link .banner-2 {
@@ -384,12 +394,12 @@ main {
 .banner-1:after,
 .banner-2::after {
     content: '';
-    height: 240px;
-    width: 600px;
+    min-height: 240px;
+    max-width: 600px;
     -webkit-mask-image: url(/images/icons-images/pokeball-icon.png);
-    -webkit-mask-size: contain 100%;
+    -webkit-mask-size: auto 100%;
     -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
+    -webkit-mask-position: 100%;
     filter: opacity(0.4) blur(20px);
     cursor: pointer;
 }
@@ -404,15 +414,27 @@ main {
     background-color: black;
 }
 
-@media (max-width:600px) {
+@media (max-width:900px) {
+    .annoucement{
+        height: 300px;
+        flex-direction: column;
+        gap: 0;
+
+    }
     .annoucement #banner-link .banner-1 {
-        max-width: 400px;
+        max-width: 300px;
         width: 100%;
+        height: 120px;
+        background-size: 100% cover;
+        background-repeat: no-repeat;
     }
 
     .annoucement #banner-link .banner-2 {
-        max-width: 400px;
+        max-width: 300px;
         width: 100%;
+        height: 120px;
+        background-size: 100% cover;
+        background-repeat: no-repeat;
     }
 
     .banner-1:after,
@@ -440,11 +462,23 @@ main {
 
 .card-list ul {
     margin: 0 auto;
-    display: flex;
-    max-width: 1370px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    max-width: 1250px;
     width: 100%;
-    flex-wrap: wrap;
-    gap: 5px;
+    gap: 10px;
+}
+@media (max-width:900px) {
+    .card-list ul{
+    grid-template-columns: repeat(3,1fr);
+    margin: 0 10px;
+    }
+}
+@media (max-width:850px) {
+    .card-list ul{
+    grid-template-columns: repeat(2,1fr);
+    margin: 0 10px;
+    }
 }
 
 .card-list .card {
