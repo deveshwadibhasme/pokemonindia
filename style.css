@@ -394,8 +394,8 @@ main {
 .banner-1:after,
 .banner-2::after {
     content: '';
-    min-height: 240px;
-    max-width: 600px;
+    min-height:30%;
+    max-width: 100%;
     -webkit-mask-image: url(/images/icons-images/pokeball-icon.png);
     -webkit-mask-size: auto 100%;
     -webkit-mask-repeat: no-repeat;
@@ -407,11 +407,13 @@ main {
 .annoucement:has(.banner-1:hover) #banner-link .banner-1:after {
     position: absolute;
     background-color: white;
+    transform: translateX(-50px) translateY(-50px);
 }
 
 .annoucement:has(.banner-2:hover) #banner-link .banner-2:after {
     position: absolute;
     background-color: black;
+    transform: translateX(-50px) translateY(-50px);
 }
 
 @media (max-width:900px) {
@@ -419,7 +421,7 @@ main {
         height: 300px;
         flex-direction: column;
         gap: 0;
-
+        overflow: hidden;
     }
     .annoucement #banner-link .banner-1 {
         max-width: 300px;
@@ -760,7 +762,7 @@ footer{
    color:#f0d8d0;
 }
 
-.global-links #terms::before,
+/* .global-links #terms::before,
 #policy::before,
 #site-map::before,
 #inquiry::before {
@@ -771,7 +773,7 @@ footer{
     left: -20px;
     font-size: 20px;
     font-weight: 400;
-}
+} */
 
 .india-region-link{
     margin: auto 0;
@@ -781,8 +783,13 @@ footer{
     align-items: center;
     padding-top: 9px;
     border-radius: 30px;
-    background-color: rgba(128, 128, 128, 0.726);
+    background-color: rgba(7, 71, 165, 0.726);
 }
+
+.india-region-link a{
+    color: white;
+}
+
 .india-region-link:hover{
     cursor: pointer;
     background-color: aliceblue;
